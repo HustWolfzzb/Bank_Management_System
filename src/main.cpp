@@ -7,7 +7,7 @@
 #include "CardOperate.h"
 #include "LogOperate.h"
 
-#define Length 100¡¤
+#define Length 100
 
 using namespace std;
 
@@ -37,6 +37,7 @@ int main()
                 Logoperate(CardID);
             }
             case '0': break;
+
             default:cout<<"Man? F**k U!\n"<<endl;
 
         }

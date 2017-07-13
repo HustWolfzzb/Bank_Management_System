@@ -12,9 +12,25 @@ class CardOperate
 {
 public:
 
-    CardOperate(int cardindex){};//构造函数
+    CardOperate(int cardindex){
+        {
+            t = time(0);
+            itoa(cardindex, filename, 10);
+            std::fstream file(strcat(filename, ".txt"), std::ios::in);//将两个char类型链接
+            while (file)
+            {
+                file.read((char*)&card, sizeof(card));
+            }
+            file.close();
 
-    ~CardOperate(){};//析构函数
+        }
+    };//构造函数
+
+    ~CardOperate(){
+        std::fstream file(filename, std::ios::out);
+        file.write((char *)&card, sizeof(card));
+        file.close();
+    };//析构函数
 
     void CardIn(double m);//存款操作模块
 
